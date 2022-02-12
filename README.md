@@ -4,7 +4,7 @@
 Untuk membuat documentasi Swagger adalah dengan mengconvert postmen Collection dari BE ini dengan cara :
     <ul>
         <li>File json collection dari posman di convert menjadi json yg compatible dengan swagger yaitu OpenAPI/Swagger v3.0 menggunakan https://www.apimatic.io/ </li>
-        <li>buka editor.swagger.io </li>
+        <li>buka https://editor.swagger.io/ </li>
         <li>paste file json yg sdh diconvert menjadi OpenAPI/Swagger v3.0 </li>
         <li>copy paste file yaml ke dalam swagger.yaml di apps BE tersebut </li>
      </ul>
