@@ -24,7 +24,8 @@ Route::post('register', [AuthController::class, 'registrasi']);
 Route::middleware(['auth:sanctum'])->group(function () {
     
     Route::get('getData', [AuthController::class, 'fetch']);
-    Route::put('updateProfile/{id}/update', [AuthController::class, 'updateProfile']);
+    Route::put('updateProfilePut/{id}/update', [AuthController::class, 'updateProfilePut']);
+    Route::post('updateProfilePost', [AuthController::class, 'updateProfilePost']);
     Route::delete('destroy/{id}/delete', [AuthController::class, 'destroy']);
 
 });

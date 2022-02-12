@@ -145,14 +145,39 @@ class AuthController extends Controller
         return response()->json($response, 200);
     }
     
-    public function updateProfile(Request $request,$id)
+    public function updateProfilePut(Request $request,$id)
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'status' => ['required','string'],
         ]);
 
+        // dd($id);
+
         $dataUser=User::find($id);
+        if($dataUser){
+            $dataUser->name = $data['name'];
+            $dataUser->status = $data['status'];
+            $dataUser->update();
+            return response()->json(["message"=>"update succesfully"],200);
+        } else {
+            return response()->json(["message"=>"User not found"],404);
+        }
+    }
+
+    public function updateProfilePost(Request $request)
+    {
+        $data = $request->validate([
+            'id' => ['required', 'int', 'max:10'],
+            'name' => ['required', 'string', 'max:255'],
+            'status' => ['required','string'],
+        ]);
+
+        // dd($data);
+
+        $dataUser=User::find($data['id']); 
+        // dd( $dataUser );
+
         if($dataUser){
             $dataUser->name = $data['name'];
             $dataUser->status = $data['status'];
