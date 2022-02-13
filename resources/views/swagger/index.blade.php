@@ -11,8 +11,8 @@
 <script src="https://be-laravel.herokuapp.com/swagger/swagger-bundle.js"></script>
 <script type="application/javascript">
     const ui = SwaggerUIBundle({
-        // url: "https://be-laravel.herokuapp.com/swagger/swagger.yaml",
-        url: "{{ asset('swagger/swagger.yaml') }}",
+        url: "https://be-laravel.herokuapp.com/swagger/swagger.yaml",
+        //url: "{{ asset('swagger/swagger.yaml') }}",
         dom_id: '#swagger-ui',
     });
 </script>
