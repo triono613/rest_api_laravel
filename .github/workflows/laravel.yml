@@ -40,7 +40,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
              sudo -i
-             cd /var/www/be-laravel-oke
+             cd /var/www/be-laravel
              ls -a
              git pull origin master
              composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
