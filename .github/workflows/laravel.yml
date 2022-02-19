@@ -7,7 +7,7 @@ name: Rest API Laravel 8 CI/CD
     branches:
       - master
 jobs:
-  jobs-be-laravel-tests:
+  jobs_1:
     runs-on: ubuntu-latest
     steps:
       - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
@@ -27,6 +27,20 @@ jobs:
       - name: Create Database
         run: vendor/bin/phpunit
 
+  deploy:
+    needs: [jobs_1]
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'ssh to deploy be-laravel to VPS'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+             cd /var/www/be-laravel
+             ls -lah
 
  
 
