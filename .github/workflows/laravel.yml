@@ -28,16 +28,20 @@ jobs:
         run: vendor/bin/phpunit
 
   deploy:
-    needs:[jobs-be-laravel-tests]
+    needs: [jobs-be-laravel-tests]
     runs-on: ubuntu-latest
     steps:
-      - name: ssh to deploy be-laravel to VPS
-      - uses: ppleboy/ssh-action@master
+      - name: 'ssh to deploy be-laravel to VPS'
+      - uses: appleboy/ssh-action@master
         with:
-        host: '${{ secrets.HOST }}'
-        username: '${{ secrets.USERNAME }}'
-        password: '${{ secrets.PASSWORD }}'
-        port: '${{ secrets.PORT }}'
-        script: |
-          cd /var/www/be-laravel
-          ls -lah
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+             cd /var/www/be-laravel
+             ls -lah
+ 
+
+        
+       
